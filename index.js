@@ -3,7 +3,7 @@
 require("dotenv").config();
 const TOKEN = process.env.TOKEN;
 
-const PREFIX = require("./config.json").prefix;
+const PREFIX = require("./storage/config.json").prefix;
 
 // require discord.js
 const Discord = require("discord.js");
@@ -36,10 +36,14 @@ client.on("ready", () => {
 client.on("messageCreate", (message) => {
     // check for bot
     if (message.author.bot) return;
+
+    let command = message.content.substring(PREFIX.length);
+    let table = command.split(" ");
+    let args = table.slice(1);
+
     // make a ping command
-    if (message.content.startsWith(PREFIX + "ping")) {
-        message.channel.send("pong!");
-    }
+    if (message.content.startsWith(PREFIX + "ping"))
+        require("./commands/ping").execute(message, args);
 });
 
 // login to discord with your app's token
