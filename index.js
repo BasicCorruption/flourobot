@@ -44,6 +44,10 @@ client.on("messageCreate", (message) => {
     // make a ping command
     if (message.content.startsWith(PREFIX + "ping"))
         require("./commands/ping").execute(message, args);
+
+    // help command
+    if (message.content.startsWith(PREFIX + "help"))
+        require("./commands/help").execute(message, args);
 });
 
 // login to discord with your app's token
