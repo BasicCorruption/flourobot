@@ -33,7 +33,7 @@ client.on("ready", () => {
 });
 
 // run on message
-client.on("messageCreate", (message) => {
+client.on("message", (message) => {
     // check for bot
     if (message.author.bot) return;
 
