@@ -1,7 +1,8 @@
 import DiscordJS, { Intents } from 'discord.js';
 import WOKCommands from 'wokcommands';
 import path from 'path';
-import 'dotenv/config';
+import dotenv from 'dotenv';
+dotenv.config();
 import mongoose from 'mongoose';
 
 const client = new DiscordJS.Client({
@@ -13,9 +14,12 @@ const client = new DiscordJS.Client({
 });
 
 client.on("ready", async () => {
-	await mongoose.connect('mongodb://localhost:27017/discordbots', {});
 
 	console.log("Logged in!");
+
+	await mongoose.connect('mongodb://localhost:27017/discordbots', {
+		keepAlive: true,
+	});
 
 	new WOKCommands(client, {
 		commandsDir: path.join(__dirname, "commands"),
