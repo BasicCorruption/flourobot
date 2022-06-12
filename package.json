@@ -1,24 +1,26 @@
 {
-  "name": "flourobot",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "run": "nodemon index.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/BasicCorruption/flourobot.git"
-  },
-  "author": "",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/BasicCorruption/flourobot/issues"
-  },
-  "homepage": "https://github.com/BasicCorruption/flourobot#readme",
-  "dependencies": {
-    "discord.js": "^13.6.0",
-    "dotenv": "^16.0.0",
-    "nodemon": "^2.0.15"
-  }
+	"name": "flourobot",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"dev": "ts-node index.ts"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/BasicCorruption/flourobot.git"
+	},
+	"keywords": [],
+	"author": "SidGames5",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/BasicCorruption/flourobot/issues"
+	},
+	"homepage": "https://github.com/BasicCorruption/flourobot#readme",
+	"dependencies": {
+		"discord.js": "^13.8.0",
+		"dotenv": "^16.0.1"
+	}
 }
+
