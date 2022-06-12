@@ -20,7 +20,8 @@
 	"homepage": "https://github.com/BasicCorruption/flourobot#readme",
 	"dependencies": {
 		"discord.js": "^13.8.0",
-		"dotenv": "^16.0.1"
+		"dotenv": "^16.0.1",
+		"mongoose": "^6.3.6",
+		"wokcommands": "^1.5.3"
 	}
 }
-
