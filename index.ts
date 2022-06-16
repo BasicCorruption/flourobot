@@ -17,14 +17,15 @@ client.on("ready", async () => {
 
 	console.log("Logged in!");
 
-	await mongoose.connect('mongodb://localhost:27017/discordbots', {
-		keepAlive: true,
-	});
+	// await mongoose.connect(`mongodb://${process.env.MONGO_URI}/${process.env.MONGO_DB}` || '', {
+	// 	keepAlive: true,
+	// });
 
 	new WOKCommands(client, {
 		commandsDir: path.join(__dirname, "commands"),
 		typeScript: true,
 		testServers: '926898971522256937',
+		mongoUri: `mongodb://${process.env.MONGO_URI}/${process.env.MONGO_DB}` || '',
 	});
 });
 
